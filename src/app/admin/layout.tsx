@@ -1,0 +1,7 @@
+import Link from "next/link";
+import { requireAdmin } from "@/lib/auth";
+import { enterUserViewAction } from "@/actions/admin";
+
+export const metadata = { robots: { index: false, follow: false } };
+
+export default async function AdminLayout({children}:{children:React.ReactNode}){const c=await requireAdmin();const sys=c.effectiveRole==="sysadmin";return <div className="site-width control-layout admin-layout"><aside className="control-sidebar admin-control-sidebar"><div className="control-title">Administration</div><div className="control-user">Zionxyos Control<small>{c.effectiveRole}</small></div><nav><Link href="/admin">Overview</Link><Link href="/admin/review">Review queue</Link><Link href="/admin/articles">Articles</Link><Link href="/admin/users">Users</Link><Link href="/admin/reports">Reports</Link><Link href="/admin/notices">Editorial notices</Link><Link href="/admin/logs">Audit log</Link>{sys&&<><Link href="/admin/taxonomy">Taxonomy</Link><Link href="/admin/media">Media Library</Link><Link href="/admin/settings">System settings</Link><Link href="/admin/system">System update</Link><Link href="/admin/health">Production health</Link></>}<Link href="/dashboard">User dashboard</Link></nav>{sys&&<form action={enterUserViewAction} className="sidebar-form"><button className="button secondary full" type="submit">View as regular user</button></form>}</aside><section className="control-content">{children}</section></div>}

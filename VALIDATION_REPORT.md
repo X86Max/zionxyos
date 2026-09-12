@@ -1,0 +1,267 @@
+# Zionxyos v0.3 Release Validation
+
+Generated: 2026-09-12T01:10:33.174Z
+
+- PASS: 253
+- WARN: 0
+- FAIL: 0
+
+## Checks
+
+- **PASS** — All 45 required release files are present
+- **PASS** — package.json version is 0.3.0
+- **PASS** — Node.js runtime is pinned consistently to 24.x
+- **PASS** — Node.js type definitions match the pinned Node 24 runtime
+- **PASS** — Application version constant matches package.json
+- **PASS** — Health endpoint reports the centralized application version
+- **PASS** — npm script 'dev' is defined
+- **PASS** — npm script 'build' is defined
+- **PASS** — npm script 'start' is defined
+- **PASS** — npm script 'lint' is defined
+- **PASS** — npm script 'typecheck' is defined
+- **PASS** — npm script 'validate:release' is defined
+- **PASS** — npm script 'preflight' is defined
+- **PASS** — npm script 'release:package' is defined
+- **PASS** — npm script 'release:final' is defined
+- **PASS** — Private admin/dashboard surfaces emit noindex metadata
+- **PASS** — Segment error, root-layout global error, and loading states are present
+- **PASS** — Migration declares v0.3 production release
+- **PASS** — Migration declares prerequisite order
+- **PASS** — Single protected sysadmin invariant exists
+- **PASS** — Hierarchical categories exist
+- **PASS** — Category-cycle trigger exists
+- **PASS** — Controlled tags exist
+- **PASS** — Article types exist
+- **PASS** — Media metadata exists
+- **PASS** — Supabase Storage bucket exists
+- **PASS** — Legal acceptance history exists
+- **PASS** — MFA-protected admin helper exists
+- **PASS** — MFA-protected sysadmin helper exists
+- **PASS** — Settings validation is hardened
+- **PASS** — Public profile projection exists
+- **PASS** — Soft-deleted pages are excluded from random
+- **PASS** — Soft-deleted pages are excluded from wiki links
+- **PASS** — System migration record is last-stage content
+- **PASS** — Migration enforces the 001/002 prerequisite before schema changes
+- **PASS** — Migration has exactly one top-level BEGIN/COMMIT pair
+- **PASS** — Migration ends with COMMIT
+- **PASS** — Migration dollar-quote delimiters are balanced
+- **PASS** — All shipped migration SQL parentheses are lexically balanced outside strings/comments/function bodies
+- **PASS** — Migration sequence drops functions before any incompatible return-shape replacement
+- **PASS** — Every wiki_search definition that orders by rank aliases the computed rank projection
+- **PASS** — Schema-level DDL only references shipped helper functions after they are defined
+- **PASS** — Every public application table has RLS enabled (28/28)
+- **PASS** — All latest SECURITY DEFINER functions pin search_path (62 checked)
+- **PASS** — Trigger/internal routines are explicitly sealed from browser RPC access (17 checked)
+- **PASS** — Policy sequencing has no duplicate CREATE without an intervening DROP
+- **PASS** — Effective RLS policies contain no raw admin/sysadmin privilege bypasses (81 checked)
+- **PASS** — Release-candidate hardening block is present at the end of migration 003
+- **PASS** — Canonical article taxonomy is writable only through the protected publication RPC
+- **PASS** — Editorial notice templates are sysadmin-only
+- **PASS** — Unused editorial notice template text is hidden from public and regular-authenticated reads
+- **PASS** — Editorial notice assignment is MFA-, actor-, active-template-, and page-protection-aware
+- **PASS** — Legal-acceptance helper is bound to the authenticated caller
+- **PASS** — Account-state helper is bound to the authenticated caller
+- **PASS** — Current legal consent is proven by immutable acceptance history
+- **PASS** — Self-service profile updates cannot forge legal or privileged account fields
+- **PASS** — Legal acceptance history is append-only to browser roles
+- **PASS** — Notification payloads are immutable to browser roles; users can only acknowledge their own records
+- **PASS** — v0.3 page-protection levels are open/admin/sysadmin
+- **PASS** — Database page-edit capability binds caller identity and distinguishes admin/sysadmin protection
+- **PASS** — Revision and revision-taxonomy RLS enforce page protection
+- **PASS** — Review RPC respects page protection before publication
+- **PASS** — Admin cannot create, alter, or remove sysadmin-only page protection
+- **PASS** — Contributor article INSERT cannot pre-set privileged canonical state
+- **PASS** — Contributor article UPDATE has an explicit canonical-field allowlist
+- **PASS** — Application RLS hard-deletes only the caller's own unpublished draft
+- **PASS** — Sysadmin article retirement/restoration is atomic, audited, and preserves canonical history
+- **PASS** — Page-edit capability rejects soft-deleted canonical articles
+- **PASS** — Page-edit capability is defined before the final review RPC consumes it
+- **PASS** — Raw moderation-state probe is not exposed to browser roles
+- **PASS** — Admin cannot create a permanent ban-equivalent with indefinite mute/suspension
+- **PASS** — Moderation writes are forced through the protected RPC
+- **PASS** — Article/revision, discussion, and report throttles are enforced at the database boundary
+- **PASS** — Database rate-limit triggers cover all intended contributor write surfaces
+- **PASS** — Media metadata is bound to the uploader's Storage folder
+- **PASS** — Contributors cannot mutate normalized taxonomy after review submission
+- **PASS** — Approval revalidates and canonicalizes controlled taxonomy
+- **PASS** — Approval refuses empty content and missing/inactive Article Types
+- **PASS** — Managed media URLs are not trusted as canonical article metadata
+- **PASS** — Contributor media limits are exposed as non-sensitive public settings
+- **PASS** — Migration does not seed article types, categories, tags, or articles
+- **PASS** — Literal internal links/forms resolve to App Router endpoints (98 checked)
+- **PASS** — Editorial notice administration is implemented and reachable
+- **PASS** — Application source does not directly mutate canonical article taxonomy
+- **PASS** — English-only source sweep found no Portuguese UI strings
+- **PASS** — No explicit any escapes remain in TS/TSX source
+- **PASS** — All local @/ imports resolve to source files
+- **PASS** — Public routes use the public profile projection instead of private profiles
+- **PASS** — All 28 application RPCs are defined in shipped migrations
+- **PASS** — Server Actions do not receive image/video file bodies
+- **PASS** — Media uploads go directly from browser to Supabase Storage
+- **PASS** — Client media picker performs signature sniffing
+- **PASS** — Browser upload paths use canonical extensions derived from MIME type
+- **PASS** — Storage RLS cross-checks object extension and declared MIME type
+- **PASS** — No Supabase service-role/secret key pattern is committed
+- **PASS** — Application source contains no dangerouslySetInnerHTML/eval/new Function usage
+- **PASS** — Client modules do not import known server-only modules
+- **PASS** — Generated/private working artifacts are source-control ignored and may exist during dependency-complete validation
+- **PASS** — CSS block braces are balanced
+- **PASS** — CSS contains no obvious numeric selector corruption
+- **PASS** — All 232 literal UI classes have stylesheet rules
+- **PASS** — Legal policy version 2026-09-09-v1 is consistent across UI and database
+- **PASS** — System updater does not execute uploaded code or rewrite the running application
+- **PASS** — Updater uses a server-side Vercel Deploy Hook and trusted release manifest model
+- **PASS** — Application edit/review UX uses the same database page-protection capability
+- **PASS** — Contributor editor reads only public site settings
+- **PASS** — Article editor uses controlled taxonomy IDs instead of free-form categories/tags
+- **PASS** — Sysadmin category administration renders an expandable hierarchy
+- **PASS** — Category merge is atomic, cycle-safe, audited, and exposed only through sysadmin taxonomy controls
+- **PASS** — Media Library shows article/revision usage and protects referenced assets in the UI
+- **PASS** — Community actions validate UUID targets, discussion parents, and report target existence
+- **PASS** — Database report policy independently validates public target existence
+- **PASS** — Database discussion policy rejects private/retired article targets and invalid cross-article reply parents
+- **PASS** — Watchlist RLS is split into own-read/delete plus public-article-only insert
+- **PASS** — Discussion moderation metadata has consistent remove/restore invariants
+- **PASS** — Report workflow actor and resolution timestamps are database-controlled
+- **PASS** — Notifications are readable only by their owner
+- **PASS** — Legacy article-version history requires ownership or sysadmin MFA
+- **PASS** — Password recovery is anonymously rate-limited
+- **PASS** — Account security page exposes password, email, and session controls
+- **PASS** — Credential changes re-check the current password and other-session logout preserves the current session
+- **PASS** — Authentication and notification return paths reject protocol-relative/backslash cross-origin redirects
+- **PASS** — Sysadmin regular-user test mode hides the privileged MFA shortcut
+- **PASS** — Maintenance mode keeps health, robots, and sitemap endpoints reachable
+- **PASS** — TypeScript incremental metadata is kept out of the release root
+- **PASS** — Release packager validates ZIP integrity, emits SHA-256, and excludes private/generated artifacts
+- **PASS** — Release packager supports dependency-complete local validation while still excluding local/private artifacts
+- **PASS** — Final release packaging is gated behind dependency-complete preflight
+- **PASS** — Finalizer enforces Node 24, a reproducible lockfile, clean-install support, and dependency-tree verification
+- **PASS** — Production deploy trigger requires an explicit typed confirmation in addition to sysadmin MFA
+- **PASS** — Dynamic infobox builder supports schema fields plus custom fields
+- **PASS** — Server rendering reconstructs managed-media URLs from bucket/object path
+- **PASS** — Release manifest fetch rejects local/private hostnames
+- **PASS** — Release manifest guard covers IPv4-mapped IPv6 link-local, private, and CGNAT ranges
+- **PASS** — System settings save atomically through one MFA RPC and the single-key helper is not browser-callable
+- **PASS** — Update fetches reject redirect pivots, URL credentials, and nonstandard manifest ports
+- **PASS** — Deploy trigger validates the expected Vercel Deploy Hook endpoint
+- **PASS** — Clearing a managed-media selection also clears its stale URL
+- **PASS** — All reader-facing editorial notice variants have explicit CSS styling
+- **PASS** — Article/revision payload size and infobox shape are bounded at the database boundary
+- **PASS** — Normalized revision taxonomy is capped under concurrency, tolerates duplicate upserts, and is rechecked at approval
+- **PASS** — Registration rejects reserved/taken usernames before creating the Auth account
+- **PASS** — Auth profile bootstrap handles simultaneous username races without aborting signup
+- **PASS** — Signup fallback username remains inside the profile username character/length constraint
+- **PASS** — Database Auth bootstrap enforces the registration feature switch against direct Supabase signups
+- **PASS** — Rate-limit buckets serialize concurrent count/insert operations
+- **PASS** — Operational health and metadata endpoints bypass auth Proxy refresh work
+- **PASS** — Supabase SSR token-refresh cache headers are preserved through Proxy responses and maintenance redirects
+- **PASS** — Suspended staff cannot bypass maintenance mode
+- **PASS** — System-setting RPC validates contact email and HTTPS URL shape
+- **PASS** — Public wiki search/link RPC inputs are bounded on both application and database paths
+- **PASS** — Search pages are noindex and cap public query length
+- **PASS** — Citation reference URLs are constrained to HTTP(S)
+- **PASS** — External media URLs are centrally constrained to credential-free HTTPS before storage and rendering
+- **PASS** — Database revision/approval boundaries reject media URLs with embedded credentials
+- **PASS** — Article, category, and public-profile detail routes emit canonical dynamic metadata
+- **PASS** — Citation URLs reject embedded credentials
+- **PASS** — Supabase public URL/key configuration is centrally validated before browser/server/proxy client creation
+- **PASS** — Auth callback redirects are explicitly non-cacheable while exchanging session cookies
+- **PASS** — Canonical public/auth URLs share a validated HTTPS site-origin helper
+- **PASS** — Anonymous rate limiting fails closed on a weak production salt
+- **PASS** — Canonical site URL rejects localhost in production, including non-Vercel deployments
+- **PASS** — IPv6 loopback host normalization is consistent in canonical/media URL validation
+- **PASS** — Existing-account legal re-consent requires an explicit submitted acceptance
+- **PASS** — Homepage branding and contribution links follow live site settings/account capability
+- **PASS** — Empty-search contribution CTA follows account and feature-switch state
+- **PASS** — MFA enrollment clears stale unverified TOTP factors before creating a replacement
+- **PASS** — Required Article Type infobox fields are enforced at database submission and approval boundaries
+- **PASS** — Retired/private article discussions are hidden from direct public reads while MFA staff retain moderation access
+- **PASS** — Editorial notice assignments disappear from public reads when the canonical page is retired
+- **PASS** — Editorial notice template/assignment mutations are recorded in the administrative audit log
+- **PASS** — Report workflow and discussion moderation mutations are recorded in the administrative audit log
+- **PASS** — Admin MFA capability also requires an active account and current legal consent
+- **PASS** — Sysadmin MFA capability also requires active account state and current legal consent
+- **PASS** — Sysadmin regular-user test mode cannot exercise privileged page-protection edits
+- **PASS** — Regular-user test mode hides staff-only announcements
+- **PASS** — Role assignment is centralized in a Sysadmin+MFA RPC and writes the v0.3 text role safely
+- **PASS** — Browser roles cannot directly mutate privileged profile role/suspension columns
+- **PASS** — Administration role changes use the protected RPC instead of direct profile UPDATE
+- **PASS** — Announcements bind immutable creator metadata and validate their time window in the database
+- **PASS** — Announcement write RLS is operation-specific and Sysadmin+MFA protected
+- **PASS** — Announcement mutations are recorded in the administrative audit trail
+- **PASS** — Notice-template creator metadata is database-bound and immutable
+- **PASS** — Notice-template write RLS is operation-specific and binds the Sysadmin actor on insert
+- **PASS** — Internal admin-note targeting respects the user/Admin/Sysadmin hierarchy at the RLS boundary
+- **PASS** — Admin-note UI action mirrors the database staff-target restriction
+- **PASS** — Site settings are browser-read/RPC-write, preventing direct bypass of atomic validation
+- **PASS** — Application settings writes use only the atomic settings RPC
+- **PASS** — Article-Type infobox schema shape, bounds, and uniqueness are enforced by PostgreSQL
+- **PASS** — Production release-manifest fetches require an exact server-side hostname allowlist
+- **PASS** — Release-manifest hostname allowlist is documented in environment/deployment guidance
+- **PASS** — Markdown rendering explicitly rejects unsafe link/image protocols and credential-bearing URLs
+- **PASS** — Revision taxonomy INSERT/DELETE RLS enforces active controlled taxonomy and removes unnecessary UPDATE
+- **PASS** — System updater records history only through the protected RPC
+- **PASS** — System update history binds the Sysadmin actor and is browser-read/RPC-write
+- **PASS** — Deploy Hook guard rejects credentials and nonstandard ports
+- **PASS** — Updater surfaces audit-history recording failures instead of silently losing them
+- **PASS** — Moderation writes are RPC-only at both RLS and table-privilege layers
+- **PASS** — Internal admin notes are append-only to browser sessions
+- **PASS** — Published announcements are immutable; UI-supported mutation is create/delete only
+- **PASS** — Blocked staff cannot bypass maintenance mode merely because their profile still has a staff role
+- **PASS** — Individual revision hard-delete is unavailable to browser sessions, preserving editorial history
+- **PASS** — Application source does not depend on direct revision deletion
+- **PASS** — Approved/rejected revision rows are immutable even to direct Sysadmin browser updates
+- **PASS** — Staff direct revision UPDATE RLS is limited to pending review rows
+- **PASS** — Approved revision category/tag relations are immutable to direct staff writes
+- **PASS** — Direct Sysadmin article UPDATE cannot rewrite canonical content outside protected workflows
+- **PASS** — Article retirement uses a scoped RPC flag and can mutate retirement metadata only
+- **PASS** — Expired page-protection timestamps do not block unrelated staff metadata updates
+- **PASS** — Media metadata is immutable after upload and retirement/restore is audited
+- **PASS** — Media update integrity is enforced by a sealed database trigger
+- **PASS** — Taxonomy creator/creation metadata is database-bound and immutable
+- **PASS** — Article Type, category, and controlled-tag CRUD are recorded in the audit trail
+- **PASS** — Taxonomy write RLS is operation-specific and binds Sysadmin authorship on insert
+- **PASS** — In-use Article Types cannot be deleted through direct Sysadmin/PostgREST writes
+- **PASS** — Published internal links are normalized into a bounded read-only derived index
+- **PASS** — Backlink/broken-link/orphan RPCs query the normalized link index instead of rescanning article content
+- **PASS** — Link-analysis pages no longer download all published article content into the application process
+- **PASS** — Password recovery state/grants are HMAC-signed, expiring, and fail closed on a weak production secret
+- **PASS** — Password-reset PKCE callback requires a valid email-bound recovery state before granting reset access
+- **PASS** — Password-reset grant is short-lived, HttpOnly, SameSite, and path-scoped
+- **PASS** — Password reset requires the signed grant in both page/action, consumes it, and signs out other refresh-token sessions
+- **PASS** — Password-recovery signing-secret deployment requirements are documented
+- **PASS** — Public revision history is paginated with a one-row lookahead for cross-boundary diffs
+- **PASS** — Public article discussions are paginated instead of loading every post
+- **PASS** — Category pages fetch only bounded hierarchy context plus paginated article results
+- **PASS** — Uncategorized-page discovery is bounded and database-side
+- **PASS** — Large public page/user directories use reusable bounded pagination
+- **PASS** — Related-article suggestions use a bounded database join instead of relation fan-out
+- **PASS** — Related-article RPC qualifies article id references that overlap RETURNS TABLE output names
+- **PASS** — Nested RLS subqueries qualify outer id references instead of shadowing or ambiguously binding them
+- **PASS** — Public category-count tree has an explicit result ceiling
+- **PASS** — Discussion/report action redirects preserve pagination queries and new posts return to their last page
+- **PASS** — Discussion moderation preserves the current paginated return path safely
+- **PASS** — Editorial notices per article are concurrency-capped at the database boundary
+- **PASS** — Report Server Action reuses the same authoritative target-validity RPC as report RLS
+- **PASS** — Category hierarchy depth is capped at the database boundary
+- **PASS** — Related-article RPC results have an explicit TypeScript shape
+- **PASS** — Page-protection reasons are bounded at the database boundary
+- **PASS** — Administrative audit metadata has a database-enforced size ceiling
+- **PASS** — Article retirement/restoration reason is bounded inside the privileged RPC
+- **PASS** — Direct Storage uploads consume image/video rate limits inside Storage RLS
+- **PASS** — Media metadata inserts must match an existing owned Storage object MIME/size
+- **PASS** — Browser uploader relies on authoritative Storage-RLS throttling instead of double-consuming quota
+- **PASS** — Rate-limit expiry cleanup has a dedicated created_at index
+- **PASS** — v0.3 release documentation is English-only and not branded as v0.2
+- **PASS** — All release guides identify the v0.3 release
+- **PASS** — Documentation preserves the no-sample-content requirement
+- **PASS** — Deployment docs require a real dependency-complete production build
+- **PASS** — v0.3 release notes preserve the build gate and no-sample-content contract
+- **PASS** — TypeScript parser accepted all 108 TS/TSX files
+- **PASS** — TypeScript source has no unused imports
+- **PASS** — Local named/default imports match their source exports
+
+## Build status
+
+This validator performs source, migration, policy-pattern, routing, import, CSS, and TypeScript syntax checks without requiring installed project dependencies. A real `npm install && npm run preflight` must still be executed in an environment with npm registry access before production deployment.

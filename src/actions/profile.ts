@@ -1,0 +1,3 @@
+"use server";
+import { revalidatePath } from "next/cache";import { redirect } from "next/navigation";import { requireUser } from "@/lib/auth";import { createClient } from "@/lib/supabase/server";
+export async function updateProfileAction(f:FormData){const c=await requireUser();const display=String(f.get("display_name")||"").trim().slice(0,80);const bio=String(f.get("bio")||"").trim().slice(0,1000);const s=await createClient();const{error}=await s.from("profiles").update({display_name:display||null,bio:bio||null}).eq("id",c.user.id);if(error)redirect(`/dashboard/profile?error=${encodeURIComponent(error.message)}`);revalidatePath("/dashboard/profile");revalidatePath(`/u/${c.profile.username}`);redirect("/dashboard/profile?success=Profile%20updated.");}

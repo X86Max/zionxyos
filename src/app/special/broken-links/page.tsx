@@ -1,0 +1,5 @@
+import Link from "next/link";
+import { createClient } from "@/lib/supabase/server";
+export const metadata={title:"Broken internal links"};
+type BrokenLink={source_title:string;source_slug:string;target:string};
+export default async function BrokenLinks(){const s=await createClient();const{data,error}=await s.rpc("wiki_broken_links",{max_results:1000});if(error)throw new Error("Could not calculate broken internal links.");const broken=(data||[])as BrokenLink[];return <div className="site-width content-page"><header className="classic-page-heading"><h1>Broken internal links</h1><p>Links to pages that do not currently exist. Up to 1,000 results are shown.</p></header>{!broken.length?<div className="wiki-message success">No broken internal links were found.</div>:<table className="management-table"><thead><tr><th>Source page</th><th>Missing target</th></tr></thead><tbody>{broken.map((x,i)=><tr key={`${x.source_slug}-${x.target}-${i}`}><td><Link href={`/article/${x.source_slug}`}>{x.source_title}</Link></td><td><Link className="new" href={`/search?q=${encodeURIComponent(x.target)}`}>{x.target}</Link></td></tr>)}</tbody></table>}</div>}
